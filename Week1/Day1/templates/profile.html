@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 40px;
+      position: relative;
+    }
+
+    .logout-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 8px 16px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      color: black;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .logout-btn:hover {
+      background-color: #ddd;
+    }
+
+    .profile-info {
+      max-width: 500px;
+    }
+
+    .profile-info h2 {
+      margin-bottom: 20px;
+    }
+
+    .profile-info p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .profile-pic {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+    }
+
+    .profile-pic img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="logout-btn" href="{{ url_for('logout') }}">Logout</a>
+
+  <div class="profile-info">
+    <h2>Welcome, {{ name }}</h2>
+    <p><strong>Birthday:</strong> {{ bday }}</p>
+    <p><strong>Address:</strong> {{ address }}</p>
+  </div>
+
+  <div class="profile-pic">
+    <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Profile Image">
+  </div>
+
+</body>
+</html>
